@@ -1,0 +1,68 @@
+<section class="content-header">
+  <h1>
+    Add Opening Hours
+    <small>Preview</small>
+  </h1>
+  <ol class="breadcrumb">
+    <li><a><i class="fa fa-cogs"></i>Setting</a></li>
+    <li><a>Opening Hours</a></li>
+    <li class="active">Add Opening Hours</li>
+  </ol>
+</section>
+<section class="content">
+  <div class="row">
+    <div class="col-md-8">
+      <div class="box box-primary">
+        <div class="box-header with-border">
+          <!-- <a class="btn btn-primary"><i class="fa fa-arrow-left"></i></a> -->
+          <a routerLink="../../openinig_hours" class="pull-right btn btn-primary"><i class="fa fa-list"></i> Opening
+            Hours
+            List</a>
+        </div>
+        <!-- /.box-header -->
+        <!-- form start -->
+        <form role="form" [formGroup]="addOpeningHoursForm" (ngSubmit)="addOpeningHours()">
+          <div class="box-body">
+            <div class="form-group">
+              <label for="exampleInputEmail1">Locations</label>
+              <input type="text" class="form-control" formControlName="location" id="exampleInputEmail1"
+                placeholder="Locations" [ngClass]="{'is-invalid': submitted && f.location.errors}">
+              <div class="invalid-feedback text-danger" *ngIf="submitted && f.location.errors?.required">
+                <sup>*</sup>Please enter Locations
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="exampleInputPassword1">Day of Week</label>
+              <input type="text" class="form-control" formControlName="day_of_the_week" id="exampleInputPassword1"
+                placeholder="Day of Week">
+              <div class="invalid-feedback text-danger" *ngIf="submitted && f.day_of_the_week.errors?.required">
+                <sup>*</sup>Please enter Day of Week
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="exampleInputPassword1">Open Time</label>
+              <input type="time" class="form-control" formControlName="open_time" id="exampleInputPassword1"
+                placeholder="Open Time">
+              <div class="invalid-feedback text-danger" *ngIf="submitted && f.open_time.errors?.required">
+                <sup>*</sup>Please enter Open Time
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="exampleInputPassword1">Close Time</label>
+              <input type="time" class="form-control" formControlName="close_time" id="exampleInputPassword1"
+                placeholder="Close Time">
+              <div class="invalid-feedback text-danger" *ngIf="submitted && f.close_time.errors?.required">
+                <sup>*</sup>Please enter Close Time
+              </div>
+            </div>
+          </div>
+          <!-- /.box-body -->
+
+          <div class="box-footer">
+            <button type="submit" class="btn btn-primary pull-right">{{submitbtn}}</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>

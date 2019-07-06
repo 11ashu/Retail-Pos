@@ -1,0 +1,52 @@
+<section class="content-header">
+  <h1>
+    Add Customer Types
+    <small>Preview</small>
+  </h1>
+  <ol class="breadcrumb">
+    <li><a><i class="fa fa-cogs"></i>Setting</a></li>
+    <li><a>Customer Types</a></li>
+    <li class="active">Add Customer Types</li>
+  </ol>
+</section>
+<section class="content">
+  <div class="row">
+    <div class="col-md-8">
+      <div class="box box-primary">
+        <div class="box-header with-border">
+          <!-- <a class="btn btn-primary"><i class="fa fa-arrow-left"></i></a> -->
+          <a routerLink="../../cutomer_types" class="pull-right btn btn-primary"><i class="fa fa-list"></i> Customer
+            Types List</a>
+        </div>
+        <!-- /.box-header -->
+        <!-- form start -->
+        <form role="form" [formGroup]="addCustomerForm" (ngSubmit)="addCustomer()">
+          <div class="box-body">
+            <div class="form-group">
+              <label for="exampleInputEmail1">Customer Name</label>
+              <input type="text" class="form-control" formControlName="name" id="exampleInputEmail1"
+                placeholder="Category Name" [ngClass]="{'is-invalid': submitted && f.name.errors}">
+              <div class="invalid-feedback text-danger" *ngIf="submitted && f.name.errors?.required">
+                <sup>*</sup>Please enter Customer Name
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="exampleInputPassword1">Description</label>
+              <textarea class="form-control" formControlName="description" style="resize: none;"></textarea>
+            </div>
+            <div class="form-group">
+              <label for="exampleInputPassword1">Discount</label>
+              <input type="text" class="form-control" formControlName="discount" id="exampleInputPassword1"
+                placeholder="Tax Rate">
+            </div>
+          </div>
+          <!-- /.box-body -->
+
+          <div class="box-footer">
+            <button type="submit" class="btn btn-primary pull-right">{{submitbtn}}</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
